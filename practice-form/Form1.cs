@@ -67,7 +67,7 @@ namespace practice_form
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int[,] weights = Perceptron.Weights;
+            int[,] weights = Perceptron.weights;
 
             int height = weights.GetLength(0);
             int width = weights.GetLength(1);

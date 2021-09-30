@@ -9,15 +9,7 @@ namespace practice_form
     class Perceptron
     {
         // Инициализация весов сети
-        private static int[,] weights;
-
-        static public int[,] Weights
-        {
-            get
-            {
-                return weights;
-            }
-        }
+        public static int[,] weights { get; private set; }
 
         // Порог функции активации
         public static int bias { get; set; }
