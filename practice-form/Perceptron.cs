@@ -20,21 +20,16 @@ namespace practice_form
 
         public static void training()
         {
-            weights = new int[10, 15];
+            weights = new int[4, 25];
             // Цифры (Обучающая выборка)
-            var num0 = "111101101101111".ToCharArray();
-            var num1 = "001001001001001".ToCharArray();
-            var num2 = "111001111100111".ToCharArray();
-            var num3 = "111001111001111".ToCharArray();
-            var num4 = "101101111001001".ToCharArray();
-            var num5 = "111100111001111".ToCharArray();
-            var num6 = "111100111101111".ToCharArray();
-            var num7 = "111001001001001".ToCharArray();
-            var num8 = "111101111101111".ToCharArray();
-            var num9 = "111101111001111".ToCharArray();
+            var num0 = "0010001010100010000000000".ToCharArray();
+            var num1 = "0000000000100010101000100".ToCharArray();
+            var num2 = "0010000010111110001000100".ToCharArray();
+            var num3 = "0010000100001000000000100".ToCharArray();
+
 
             // Список всех вышеуказанных цифр
-            char[][] nums = { num0, num1, num2, num3, num4, num5, num6, num7, num8, num9 };
+            char[][] nums = { num0, num1, num2, num3 };
 
             // Виды цифры 5 (Тестовая выборка)
             var num51 = "111100111000111".ToCharArray();
@@ -45,13 +40,15 @@ namespace practice_form
             var num56 = "111100101001111".ToCharArray();
             var num10 = "001001000001001".ToCharArray();
 
+            Char[] symbols = new char[4]{ '˄', '˅', '→', '!'};
+
             // Тренировка сети
             for (int i = 0; i < trainings; i++)
             {
                 // Генерируем случайное число от 0 до 9
-                var option = random.Next(0, 9 + 1);
+                var option = random.Next(0, 4);
 
-                for (int j = 0; j < 10; j++)
+                for (int j = 0; j < 4; j++)
                 {
                     if (option != j)
                     {
@@ -69,7 +66,7 @@ namespace practice_form
         {
             // Рассчитываем взвешенную сумму
             var net = 0;
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 25; i++)
             {
                 net += int.Parse(number[i].ToString()) * weights[rightNum, i];
             }
@@ -81,7 +78,7 @@ namespace practice_form
         // Уменьшение значений весов, если сеть ошиблась и выдала 1
         private static void decrease(char[] number, int rightNum)
         {
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 25; i++)
             {
                 // Возбужденный ли вход
                 if (int.Parse(number[i].ToString()) == 1)
@@ -95,7 +92,7 @@ namespace practice_form
         // Увеличение значений весов, если сеть ошиблась и выдала 0
         private static void increase(char[] number, int rightNum)
         {
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 25; i++)
             {
                 // Возбужденный ли вход
                 if (int.Parse(number[i].ToString()) == 1)
