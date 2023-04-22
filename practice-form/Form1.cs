@@ -151,5 +151,10 @@ namespace practice_form
             Perceptron.trainings = (int)numericUpDown1.Value;
             Perceptron.training();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -182,7 +182,7 @@ namespace practice_form
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.White;
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox4.Location = new System.Drawing.Point(93, 269);
+            this.pictureBox4.Location = new System.Drawing.Point(186, 238);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(25, 25);
             this.pictureBox4.TabIndex = 3;
@@ -193,7 +193,7 @@ namespace practice_form
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.White;
             this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox5.Location = new System.Drawing.Point(124, 269);
+            this.pictureBox5.Location = new System.Drawing.Point(217, 238);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(25, 25);
             this.pictureBox5.TabIndex = 4;
@@ -204,7 +204,7 @@ namespace practice_form
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.White;
             this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox6.Location = new System.Drawing.Point(155, 269);
+            this.pictureBox6.Location = new System.Drawing.Point(93, 269);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(25, 25);
             this.pictureBox6.TabIndex = 5;
@@ -215,7 +215,7 @@ namespace practice_form
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.White;
             this.pictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox7.Location = new System.Drawing.Point(93, 300);
+            this.pictureBox7.Location = new System.Drawing.Point(124, 269);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(25, 25);
             this.pictureBox7.TabIndex = 6;
@@ -226,7 +226,7 @@ namespace practice_form
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.White;
             this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox8.Location = new System.Drawing.Point(124, 300);
+            this.pictureBox8.Location = new System.Drawing.Point(155, 269);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(25, 25);
             this.pictureBox8.TabIndex = 7;
@@ -237,7 +237,7 @@ namespace practice_form
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.White;
             this.pictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox9.Location = new System.Drawing.Point(155, 300);
+            this.pictureBox9.Location = new System.Drawing.Point(186, 269);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(25, 25);
             this.pictureBox9.TabIndex = 8;
@@ -248,7 +248,7 @@ namespace practice_form
             // 
             this.pictureBox10.BackColor = System.Drawing.Color.White;
             this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox10.Location = new System.Drawing.Point(93, 331);
+            this.pictureBox10.Location = new System.Drawing.Point(217, 269);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(25, 25);
             this.pictureBox10.TabIndex = 9;
@@ -259,7 +259,7 @@ namespace practice_form
             // 
             this.pictureBox11.BackColor = System.Drawing.Color.White;
             this.pictureBox11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox11.Location = new System.Drawing.Point(124, 331);
+            this.pictureBox11.Location = new System.Drawing.Point(93, 300);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(25, 25);
             this.pictureBox11.TabIndex = 10;
@@ -270,7 +270,7 @@ namespace practice_form
             // 
             this.pictureBox12.BackColor = System.Drawing.Color.White;
             this.pictureBox12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox12.Location = new System.Drawing.Point(155, 331);
+            this.pictureBox12.Location = new System.Drawing.Point(124, 300);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(25, 25);
             this.pictureBox12.TabIndex = 11;
@@ -281,7 +281,7 @@ namespace practice_form
             // 
             this.pictureBox13.BackColor = System.Drawing.Color.White;
             this.pictureBox13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox13.Location = new System.Drawing.Point(93, 362);
+            this.pictureBox13.Location = new System.Drawing.Point(155, 300);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(25, 25);
             this.pictureBox13.TabIndex = 12;
@@ -292,7 +292,7 @@ namespace practice_form
             // 
             this.pictureBox14.BackColor = System.Drawing.Color.White;
             this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox14.Location = new System.Drawing.Point(124, 362);
+            this.pictureBox14.Location = new System.Drawing.Point(186, 300);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(25, 25);
             this.pictureBox14.TabIndex = 13;
@@ -303,7 +303,7 @@ namespace practice_form
             // 
             this.pictureBox15.BackColor = System.Drawing.Color.White;
             this.pictureBox15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox15.Location = new System.Drawing.Point(155, 362);
+            this.pictureBox15.Location = new System.Drawing.Point(217, 300);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(25, 25);
             this.pictureBox15.TabIndex = 14;
@@ -373,6 +373,7 @@ namespace practice_form
             this.label2.Size = new System.Drawing.Size(312, 24);
             this.label2.TabIndex = 21;
             this.label2.Text = "Введите число порога активации";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -441,7 +442,7 @@ namespace practice_form
             // 
             this.pictureBox16.BackColor = System.Drawing.Color.White;
             this.pictureBox16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox16.Location = new System.Drawing.Point(217, 362);
+            this.pictureBox16.Location = new System.Drawing.Point(93, 331);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(25, 25);
             this.pictureBox16.TabIndex = 51;
@@ -452,7 +453,7 @@ namespace practice_form
             // 
             this.pictureBox17.BackColor = System.Drawing.Color.White;
             this.pictureBox17.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox17.Location = new System.Drawing.Point(186, 362);
+            this.pictureBox17.Location = new System.Drawing.Point(124, 331);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.Size = new System.Drawing.Size(25, 25);
             this.pictureBox17.TabIndex = 50;
@@ -463,7 +464,7 @@ namespace practice_form
             // 
             this.pictureBox18.BackColor = System.Drawing.Color.White;
             this.pictureBox18.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox18.Location = new System.Drawing.Point(217, 331);
+            this.pictureBox18.Location = new System.Drawing.Point(155, 331);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.Size = new System.Drawing.Size(25, 25);
             this.pictureBox18.TabIndex = 49;
@@ -485,7 +486,7 @@ namespace practice_form
             // 
             this.pictureBox20.BackColor = System.Drawing.Color.White;
             this.pictureBox20.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox20.Location = new System.Drawing.Point(217, 300);
+            this.pictureBox20.Location = new System.Drawing.Point(217, 331);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Size = new System.Drawing.Size(25, 25);
             this.pictureBox20.TabIndex = 47;
@@ -496,7 +497,7 @@ namespace practice_form
             // 
             this.pictureBox21.BackColor = System.Drawing.Color.White;
             this.pictureBox21.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox21.Location = new System.Drawing.Point(186, 300);
+            this.pictureBox21.Location = new System.Drawing.Point(93, 362);
             this.pictureBox21.Name = "pictureBox21";
             this.pictureBox21.Size = new System.Drawing.Size(25, 25);
             this.pictureBox21.TabIndex = 46;
@@ -507,7 +508,7 @@ namespace practice_form
             // 
             this.pictureBox22.BackColor = System.Drawing.Color.White;
             this.pictureBox22.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox22.Location = new System.Drawing.Point(217, 269);
+            this.pictureBox22.Location = new System.Drawing.Point(124, 362);
             this.pictureBox22.Name = "pictureBox22";
             this.pictureBox22.Size = new System.Drawing.Size(25, 25);
             this.pictureBox22.TabIndex = 45;
@@ -518,7 +519,7 @@ namespace practice_form
             // 
             this.pictureBox23.BackColor = System.Drawing.Color.White;
             this.pictureBox23.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox23.Location = new System.Drawing.Point(186, 269);
+            this.pictureBox23.Location = new System.Drawing.Point(155, 362);
             this.pictureBox23.Name = "pictureBox23";
             this.pictureBox23.Size = new System.Drawing.Size(25, 25);
             this.pictureBox23.TabIndex = 44;
@@ -529,7 +530,7 @@ namespace practice_form
             // 
             this.pictureBox24.BackColor = System.Drawing.Color.White;
             this.pictureBox24.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox24.Location = new System.Drawing.Point(217, 238);
+            this.pictureBox24.Location = new System.Drawing.Point(186, 362);
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.Size = new System.Drawing.Size(25, 25);
             this.pictureBox24.TabIndex = 43;
@@ -540,7 +541,7 @@ namespace practice_form
             // 
             this.pictureBox25.BackColor = System.Drawing.Color.White;
             this.pictureBox25.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox25.Location = new System.Drawing.Point(186, 238);
+            this.pictureBox25.Location = new System.Drawing.Point(217, 362);
             this.pictureBox25.Name = "pictureBox25";
             this.pictureBox25.Size = new System.Drawing.Size(25, 25);
             this.pictureBox25.TabIndex = 42;
