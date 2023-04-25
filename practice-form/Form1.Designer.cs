@@ -318,7 +318,7 @@ namespace practice_form
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(181, 57);
             this.button1.TabIndex = 15;
-            this.button1.Text = "Определить число";
+            this.button1.Text = "Определить симвло";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
