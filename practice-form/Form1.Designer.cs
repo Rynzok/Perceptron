@@ -338,7 +338,7 @@ namespace practice_form
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 24);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Введите число";
+            this.label1.Text = "Введите символ";
             // 
             // button2
             // 
@@ -436,7 +436,7 @@ namespace practice_form
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(199, 24);
             this.label5.TabIndex = 41;
-            this.label5.Text = "Распознанная цифра";
+            this.label5.Text = "Распознанный символ";
             // 
             // pictureBox16
             // 

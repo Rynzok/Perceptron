@@ -31,16 +31,8 @@ namespace practice_form
             // Список всех вышеуказанных цифр
             char[][] nums = { num0, num1, num2, num3 };
 
-            // Виды цифры 5 (Тестовая выборка)
-            var num51 = "111100111000111".ToCharArray();
-            var num52 = "111100010001111".ToCharArray();
-            var num53 = "111100011001111".ToCharArray();
-            var num54 = "110100111001111".ToCharArray();
-            var num55 = "110100111001011".ToCharArray();
-            var num56 = "111100101001111".ToCharArray();
-            var num10 = "001001000001001".ToCharArray();
 
-            Char[] symbols = new char[4]{ '˄', '˅', '→', '!'};
+            //Char[] symbols = new char[4]{ '˄', '˅', '→', '!'};
 
             // Тренировка сети
             for (int i = 0; i < trainings; i++)
