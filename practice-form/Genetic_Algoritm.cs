@@ -8,17 +8,18 @@ namespace practice_form
 {
     internal class Genetic_Algoritm
     {
-        class Indidvid
+        public class Indidvid
         {
             public Indidvid(Random random) // Конструктор единичной осыби популяции
             {
-                array = new int[32];
+                array = new int[225];
                 this.random = random;
 
             }
 
             public int[] array;
-            public double value;
+            public int[] weights;
+            public int value;
             public Random random;
 
             public void Create_Individ() // Заносим в массив занчения
@@ -28,7 +29,25 @@ namespace practice_form
                 {
                     array[i] = random.Next(2);
                 }
-                value = Value_Finding(array);
+                weights = Сalculation_Цeights(array);
+            }
+
+            public int[] Сalculation_Цeights(int[] array)
+            {
+                int k = 0;
+                for (int i = 0; i < array.Length; i +=9)
+                {
+                    for (int j = i + 8; j > i; j--)
+                    {
+                        weights[k] += array[j] * (int)Math.Pow(2, j);
+                    }
+                    if (array[i] == 0)
+                    {
+                        weights[k] = -weights[k];
+                    }
+                k++;
+                }
+                return weights;
             }
 
             public void Reproduction(int[] perent1, int[] perent2, int s1, int s2, bool shit) // Осуществяем кроссигновер от родителей
@@ -64,7 +83,6 @@ namespace practice_form
                     }
                 }
                 Mutation(array);
-                value = Value_Finding(array);
             }
 
             public void Mutation(int[] array) // Осуществление мутации
@@ -81,7 +99,7 @@ namespace practice_form
             }
         }
 
-        class Population
+        public class Population
         {
             public Population(int N, int x) // Конструктор создания популяции
             {
@@ -98,7 +116,7 @@ namespace practice_form
             public int x; // Номер популяции
             public int N; // Количесвто осыбей
             public Random random = new Random(); // Генератор случайных чисел
-            public double min_value;
+            public int min_value;
 
             public Indidvid[] Create_Population(int N) // Создаём популяция
             {
@@ -107,7 +125,7 @@ namespace practice_form
                 {
                     ind[i] = new Indidvid(random);
                     ind[i].Create_Individ();
-                    Print(ind[i].array, ind[i].value);
+                    //Print(ind[i].array, ind[i].value);
                 }
                 return ind;
             }
@@ -151,12 +169,12 @@ namespace practice_form
                 }
                 this.x++;
                 Overwriting(children);
-                Console.WriteLine("lol! А это только " + x + "-ое потомство, смотри что будет дальше:");
-                for (int i = 0; i < N; i++)
-                {
-                    Print(ind[i].array, ind[i].value); // Печатем детей
-                }
-                this.min_value = GetValue(ind);
+                //Console.WriteLine("lol! А это только " + x + "-ое потомство, смотри что будет дальше:");
+                //for (int i = 0; i < N; i++)
+                //{
+                //    Print(ind[i].array, ind[i].value); // Печатем детей
+                //}
+                //this.min_value = GetValue(ind);
             }
 
             public int Selection(double[] roulette_fields) // Выбераем родителей
@@ -181,20 +199,20 @@ namespace practice_form
                 {
                     ind[i] = children[i];
                 }
-            }
+            } // Заменяем старую популяцию нвовй
 
-            public double GetValue(Indidvid[] ind)
-            {
+            //public double GetValue(Indidvid[] ind)
+            //{
 
-                for (int i = 0; i < N; i++)
-                {
-                    if (min_value < Math.Abs(ind[i].value))
-                    {
-                        min_value = Math.Abs(ind[i].value);
-                    }
-                }
-                return min_value;
-            }
+            //    for (int i = 0; i < N; i++)
+            //    {
+            //        if (min_value < Math.Abs(ind[i].value))
+            //        {
+            //            min_value = Math.Abs(ind[i].value - 20);
+            //        }
+            //    }
+            //    return min_value;
+            //}
 
         }
 
@@ -203,69 +221,30 @@ namespace practice_form
             double sum = 0;
             for (int i = 0; i < ind.Length * 0.6; i++) // Сумма фитнесс-функций 60% наиболееприспособленных осыбей
             {
-                sum += 1 / Math.Abs(ind[i].value);
+                sum += 1 / Math.Abs(ind[i].value-20);
             }
             return sum;
         }  // Обратная сумма
 
-        static void Print(int[] array, double value) // Метод вывода новых генов в консоль
-        {
-            for (byte i = 0; i < array.Length; i++)
-            {
-                Console.Write(array[i]);
-            }
-            Console.Write(" Ценнсть гена: " + value + "\n");
-        }
-
-        static double Value_Finding(int[] array)
-        {
-            double X = 0;
-            for (int i = 3; i > 0; i--)
-            {
-                X += array[i] * Math.Pow(2, -(i - 3));
-            }
-            double X_point = 0;
-            for (int i = 16; i > 3; i--)
-            {
-                X_point += array[i] * Math.Pow(2, -(i - 16));
-            }
-            X += X_point / Math.Pow(10, X_point.ToString().Length);
-            if (array[0] == 0)
-            {
-                X = -X;
-            }
+        //static void Print(int[] array, double value) // Метод вывода новых генов в консоль
+        //{
+        //    for (byte i = 0; i < array.Length; i++)
+        //    {
+        //        Console.Write(array[i]);
+        //    }
+        //    Console.Write(" Ценнсть гена: " + value + "\n");
+        //}
 
 
-            double Y = 0;
-            for (int i = 20; i > 17; i--)
-            {
-                Y += array[i] * Math.Pow(2, -(i - 24));
-            }
-            double Y_point = 0;
-            for (int i = 31; i > 20; i--)
-            {
-                Y_point += array[i] * Math.Pow(2, -(i - 31));
-            }
-            Y += Y_point / Math.Pow(10, Y_point.ToString().Length);
-            if (array[17] == 0)
-            {
-                Y = -Y;
-            }
+        //public static void Main()
+        //{
+        //    int N = 100;
+        //    Population population = new Population(N, 0);
+        //    while (population.min_value != 0)
+        //    {
+        //        population.Copulation(population.ind);
+        //    }
 
-            double value = Math.Pow(1.5 - X + X * Y, 2) + Math.Pow(2.25 - X + X * Y * Y, 2) + Math.Pow(2.625 - X + X * Y * Y * Y, 2);
-            return value;
-        } //Расчёт ценности гена
-
-
-        static void Main(string[] args)
-        {
-            int N = Convert.ToInt32(Console.ReadLine());
-            Population population = new Population(N, 0);
-            while (population.min_value != 0)
-            {
-                population.Copulation(population.ind);
-            }
-
-        }
+        //}
     }
 }

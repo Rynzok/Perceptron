@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static practice_form.Genetic_Algoritm;
 
 namespace practice_form
 {
@@ -20,7 +22,10 @@ namespace practice_form
 
         public static void training()
         {
-            weights = new int[4, 25];
+            //weights = new int[4, 25];
+            //Genetic_Algoritm.Main();
+            int N = 100;
+            Population population = new Population(N, 0);
             // Цифры (Обучающая выборка)
             var num0 = "0010001010100010000000000".ToCharArray();
             var num1 = "0000000000100010101000100".ToCharArray();
@@ -37,30 +42,39 @@ namespace practice_form
             // Тренировка сети
             for (int i = 0; i < trainings; i++)
             {
-                // Генерируем случайное число от 0 до 9
-                var option = random.Next(0, 4);
-
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < population.ind.Length ; j++)
                 {
-                    if (option != j)
+                    for (int k = 0; k < Character_Base.base_nums.Length; k++)
                     {
-                        if (proceed(nums[option], j)) decrease(nums[option], j);
+                        if (proceed(Character_Base.base_nums[k], population.ind[j].weights)) population.ind[j].value++;
                     }
-                    else
-                    {
-                        if (!proceed(nums[j], j)) increase(nums[j], j);
-                    }
+                    
                 }
+                population.Copulation(population.ind);
+                // Генерируем случайное число от 0 до 9
+                //var option = random.Next(0, 4);
+
+                //for (int j = 0; j < 4; j++)
+                //{
+                //    if (option != j)
+                //    {
+                //        if (proceed(nums[option], j)) decrease(nums[option], j);
+                //    }
+                //    else
+                //    {
+                //        if (!proceed(nums[j], j)) increase(nums[j], j);
+                //    }
+                //}
             }
         }
 
-        public static bool proceed(char[] number, int rightNum)
+        public static bool proceed(char[] base_number, int [] weights)
         {
             // Рассчитываем взвешенную сумму
             var net = 0;
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < base_number.Length; i++)
             {
-                net += int.Parse(number[i].ToString()) * weights[rightNum, i];
+                net += int.Parse(base_number[i].ToString()) * weights[i];
             }
 
             // Превышен ли порог? (Да - сеть думает, что это 5. Нет - сеть думает, что это другая цифра)
@@ -68,31 +82,31 @@ namespace practice_form
         }
 
         // Уменьшение значений весов, если сеть ошиблась и выдала 1
-        private static void decrease(char[] number, int rightNum)
-        {
-            for (int i = 0; i < 25; i++)
-            {
-                // Возбужденный ли вход
-                if (int.Parse(number[i].ToString()) == 1)
-                {
-                    // Уменьшаем связанный с ним вес на единицу
-                    weights[rightNum, i]--;
-                }
-            }
-        }
+        //private static void decrease(char[] number, int rightNum)
+        //{
+        //    for (int i = 0; i < 25; i++)
+        //    {
+        //        // Возбужденный ли вход
+        //        if (int.Parse(number[i].ToString()) == 1)
+        //        {
+        //            // Уменьшаем связанный с ним вес на единицу
+        //            weights[rightNum, i]--;
+        //        }
+        //    }
+        //}
 
         // Увеличение значений весов, если сеть ошиблась и выдала 0
-        private static void increase(char[] number, int rightNum)
-        {
-            for (int i = 0; i < 25; i++)
-            {
-                // Возбужденный ли вход
-                if (int.Parse(number[i].ToString()) == 1)
-                {
-                    // Увеличиваем связанный с ним вес на единицу
-                    weights[rightNum, i]++;
-                }
-            }
-        }
+        //private static void increase(char[] number, int rightNum)
+        //{
+        //    for (int i = 0; i < 25; i++)
+        //    {
+        //        // Возбужденный ли вход
+        //        if (int.Parse(number[i].ToString()) == 1)
+        //        {
+        //            // Увеличиваем связанный с ним вес на единицу
+        //            weights[rightNum, i]++;
+        //        }
+        //    }
+        //}
     }
 }
