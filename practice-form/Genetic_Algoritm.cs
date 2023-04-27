@@ -12,7 +12,7 @@ namespace practice_form
         {
             public Indidvid(Random random) // Конструктор единичной осыби популяции
             {
-                array = new int[225];
+                array = new int[200];
                 this.random = random;
                 value = 1;
             }
@@ -35,11 +35,11 @@ namespace practice_form
             public int[] Сalculation_Weights(int[] array)
             {
                 int k = 0;
-                for (int i = 0; i < array.Length; i +=9)
+                for (int i = 0; i < array.Length; i +=8)
                 {
-                    for (int j = i + 8; j > i; j--)
+                    for (int j = 7; j > 0; j--)
                     {
-                        weights[k] += array[j] * (int)Math.Pow(2, Math.Abs(j-8));
+                        weights[k] += array[i + j] * (int)Math.Pow(2, Math.Abs(j-7));
                     }
                     if (array[i] == 0)
                     {
