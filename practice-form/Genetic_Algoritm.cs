@@ -143,12 +143,11 @@ namespace practice_form
                 }
                 int x1;
                 int x2;
-
                 Indidvid[] children = new Indidvid[N]; // Массив потомства
                 for (int i = 0; i < ind.Length; i += 2)
                 {
-                    int s1 = random.Next(1, 32 / 2); // 1 точка для кроссинговера
-                    int s2 = random.Next(32 / 2, 32); // 2 точка для кроссинговера
+                    int s1 = random.Next(1, 200 / 2); // 1 точка для кроссинговера
+                    int s2 = random.Next(200 / 2, 200); // 2 точка для кроссинговера
 
                     //int s1 = 5;
                     //int s2 = 23;
@@ -162,10 +161,8 @@ namespace practice_form
                         x1 = Selection(roulette_fields);
                         x2 = Selection(roulette_fields);
                     } while (x1 == x2); // Выбираем им родителей
-
                     children[i].Reproduction(ind[x1].array, ind[x2].array, s1, s2, true);
                     children[i + 1].Reproduction(ind[x1].array, ind[x2].array, s1, s2, false);
-
                 }
                 this.x++;
                 Overwriting(children);
@@ -221,7 +218,7 @@ namespace practice_form
             double sum = 0;
             for (int i = 0; i < ind.Length * 0.6; i++) // Сумма фитнесс-функций 60% наиболееприспособленных осыбей
             {
-                sum += 1 / Math.Abs(ind[i].value-20);
+                sum += 1 / Math.Abs(ind[i].value);
             }
             return sum;
         }  // Обратная сумма

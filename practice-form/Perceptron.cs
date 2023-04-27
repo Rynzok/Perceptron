@@ -110,15 +110,19 @@ namespace practice_form
                                 case 3: if (proceed(base_nums4[k], population.ind[j].weights)) population.ind[j].value++; break;
 
                             }
+                            //Console.WriteLine("Чё?");
                         }
                     
                     }
+                    Console.WriteLine("Чё?");
                     population.Copulation(population.ind);
+                    Console.WriteLine("Размножение произошло?" + population.x);
                 }
                 for (int i = 0; i < 25; i++)
                 {
                     weights[n,i] = population.ind[0].array[i];
                 }
+                Console.WriteLine("WTF?");
             }
         }
 

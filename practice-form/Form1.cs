@@ -132,7 +132,7 @@ namespace practice_form
                 for (int j = 0; j < width; j++)
                 {
                     msg += weights[i, j].ToString() + ", ";
-                    if (j % 3 == 2)
+                    if (j % 5 == 4)
                     {
                         msg += '\n';
                         msg += "   ";

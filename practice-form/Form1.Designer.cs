@@ -336,7 +336,7 @@ namespace practice_form
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(89, 176);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 24);
+            this.label1.Size = new System.Drawing.Size(159, 24);
             this.label1.TabIndex = 18;
             this.label1.Text = "Введите символ";
             // 
@@ -396,7 +396,7 @@ namespace practice_form
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 23;
             this.numericUpDown1.Value = new decimal(new int[] {
-            10000,
+            1000,
             0,
             0,
             0});
@@ -434,7 +434,7 @@ namespace practice_form
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.Location = new System.Drawing.Point(326, 176);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(199, 24);
+            this.label5.Size = new System.Drawing.Size(212, 24);
             this.label5.TabIndex = 41;
             this.label5.Text = "Распознанный символ";
             // 
