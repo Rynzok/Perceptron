@@ -22,49 +22,103 @@ namespace practice_form
 
         public static void training()
         {
-            //weights = new int[4, 25];
+            weights = new int[4, 25];
             //Genetic_Algoritm.Main();
             int N = 100;
             Population population = new Population(N, 0);
             // Цифры (Обучающая выборка)
-            var num0 = "0010001010100010000000000".ToCharArray();
-            var num1 = "0000000000100010101000100".ToCharArray();
-            var num2 = "0010000010111110001000100".ToCharArray();
-            var num3 = "0010000100001000000000100".ToCharArray();
+            //var num0 = "0010001010100010000000000".ToCharArray();
+            //var num1 = "0000000000100010101000100".ToCharArray();
+            //var num2 = "0010000010111110001000100".ToCharArray();
+            //var num3 = "0010000100001000000000100".ToCharArray();
 
 
             // Список всех вышеуказанных цифр
-            char[][] nums = { num0, num1, num2, num3 };
-
-
+            //char[][] nums = { num0, num1, num2, num3 };
+            //Character_Base numbers = new Character_Base();
+            //numbers.Create_Base();
             //Char[] symbols = new char[4]{ '˄', '˅', '→', '!'};
 
-            // Тренировка сети
-            for (int i = 0; i < trainings; i++)
-            {
-                for (int j = 0; j < population.ind.Length ; j++)
-                {
-                    for (int k = 0; k < Character_Base.base_nums.Length; k++)
-                    {
-                        if (proceed(Character_Base.base_nums[k], population.ind[j].weights)) population.ind[j].value++;
-                    }
-                    
-                }
-                population.Copulation(population.ind);
-                // Генерируем случайное число от 0 до 9
-                //var option = random.Next(0, 4);
+            var num0 = "0010001010100010000000000".ToCharArray();
+            var num1 = "0010001010100010000000000".ToCharArray();
+            var num2 = "0010001010100010000000000".ToCharArray();
+            var num3 = "0010001010100010000000000".ToCharArray();
+            var num4 = "0010001010100010000000000".ToCharArray();
+            var num5 = "0010001010100010000000000".ToCharArray();
+            var num6 = "0010001010100010000000000".ToCharArray();
+            var num7 = "0010001010100010000000000".ToCharArray();
+            var num8 = "0010001010100010000000000".ToCharArray();
+            var num9 = "0010001010100010000000000".ToCharArray();
 
-                //for (int j = 0; j < 4; j++)
-                //{
-                //    if (option != j)
-                //    {
-                //        if (proceed(nums[option], j)) decrease(nums[option], j);
-                //    }
-                //    else
-                //    {
-                //        if (!proceed(nums[j], j)) increase(nums[j], j);
-                //    }
-                //}
+            char[][] base_nums1 = { num0, num1, num2, num3, num4, num5, num6, num7, num8, num9 }; // База для ˄
+
+            var num10 = "0000000000100010101000100".ToCharArray();
+            var num11 = "0000000000100010101000100".ToCharArray();
+            var num12 = "0000000000100010101000100".ToCharArray();
+            var num13 = "0000000000100010101000100".ToCharArray();
+            var num14 = "0000000000100010101000100".ToCharArray();
+            var num15 = "0000000000100010101000100".ToCharArray();
+            var num16 = "0000000000100010101000100".ToCharArray();
+            var num17 = "0000000000100010101000100".ToCharArray();
+            var num18 = "0000000000100010101000100".ToCharArray();
+            var num19 = "0000000000100010101000100".ToCharArray();
+
+            char[][] base_nums2 = { num10, num11, num12, num13, num14, num15, num16, num17, num18, num19 }; // База для ˅
+
+            var num20 = "0010000010111110001000100".ToCharArray();
+            var num21 = "0010000010111110001000100".ToCharArray();
+            var num22 = "0010000010111110001000100".ToCharArray();
+            var num23 = "0010000010111110001000100".ToCharArray();
+            var num24 = "0010000010111110001000100".ToCharArray();
+            var num25 = "0010000010111110001000100".ToCharArray();
+            var num26 = "0010000010111110001000100".ToCharArray();
+            var num27 = "0010000010111110001000100".ToCharArray();
+            var num28 = "0010000010111110001000100".ToCharArray();
+            var num29 = "0010000010111110001000100".ToCharArray();
+
+
+            char[][] base_nums3 = { num20, num21, num22, num23, num24, num25, num26, num27, num28, num29 }; // База для →
+
+            var num30 = "0010000100001000000000100".ToCharArray();
+            var num31 = "0010000100001000000000100".ToCharArray();
+            var num32 = "0010000100001000000000100".ToCharArray();
+            var num33 = "0010000100001000000000100".ToCharArray();
+            var num34 = "0010000100001000000000100".ToCharArray();
+            var num35 = "0010000100001000000000100".ToCharArray();
+            var num36 = "0010000100001000000000100".ToCharArray();
+            var num37 = "0010000100001000000000100".ToCharArray();
+            var num38 = "0010000100001000000000100".ToCharArray();
+            var num39 = "0010000100001000000000100".ToCharArray();
+
+
+            char[][] base_nums4 = { num30, num31, num32, num33, num34, num35, num36, num37, num38, num39 }; // База для !
+
+            // Тренировка сети
+            for (int n = 0; n <4; n++)
+            {
+                for (int i = 0; i < trainings; i++)
+                {
+                    for (int j = 0; j < population.ind.Length ; j++)
+                    {
+                        for (int k = 0; k < 10; k++)
+                        {
+                            switch(n)
+                            {
+                                case 0: if (proceed(base_nums1[k], population.ind[j].weights)) population.ind[j].value++; break;
+                                case 1: if (proceed(base_nums2[k], population.ind[j].weights)) population.ind[j].value++; break;
+                                case 2: if (proceed(base_nums3[k], population.ind[j].weights)) population.ind[j].value++; break;
+                                case 3: if (proceed(base_nums4[k], population.ind[j].weights)) population.ind[j].value++; break;
+
+                            }
+                        }
+                    
+                    }
+                    population.Copulation(population.ind);
+                }
+                for (int i = 0; i < 25; i++)
+                {
+                    weights[n,i] = population.ind[0].array[i];
+                }
             }
         }
 
@@ -75,6 +129,19 @@ namespace practice_form
             for (int i = 0; i < base_number.Length; i++)
             {
                 net += int.Parse(base_number[i].ToString()) * weights[i];
+            }
+
+            // Превышен ли порог? (Да - сеть думает, что это 5. Нет - сеть думает, что это другая цифра)
+            return net >= bias;
+        }
+
+        public static bool Comparison(char[] base_number, int RightNumbers)
+        {
+            // Рассчитываем взвешенную сумму
+            var net = 0;
+            for (int i = 0; i < base_number.Length; i++)
+            {
+                net += int.Parse(base_number[i].ToString()) * weights[RightNumbers, i];
             }
 
             // Превышен ли порог? (Да - сеть думает, что это 5. Нет - сеть думает, что это другая цифра)

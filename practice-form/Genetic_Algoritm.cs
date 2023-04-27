@@ -14,11 +14,11 @@ namespace practice_form
             {
                 array = new int[225];
                 this.random = random;
-
+                value = 1;
             }
 
             public int[] array;
-            public int[] weights;
+            public int[] weights = new int[25];
             public int value;
             public Random random;
 
@@ -29,10 +29,10 @@ namespace practice_form
                 {
                     array[i] = random.Next(2);
                 }
-                weights = Сalculation_Цeights(array);
+                weights = Сalculation_Weights(array);
             }
 
-            public int[] Сalculation_Цeights(int[] array)
+            public int[] Сalculation_Weights(int[] array)
             {
                 int k = 0;
                 for (int i = 0; i < array.Length; i +=9)

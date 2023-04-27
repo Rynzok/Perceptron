@@ -109,7 +109,7 @@ namespace practice_form
 
             for (int i = 0; i < 4; i++)
             {
-                if (Perceptron.proceed(num.ToCharArray(), i))
+                if (Perceptron.Comparison(num.ToCharArray(), i))
                 {
                     return i;
                 }
