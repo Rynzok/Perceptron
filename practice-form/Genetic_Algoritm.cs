@@ -39,7 +39,7 @@ namespace practice_form
                 {
                     for (int j = i + 8; j > i; j--)
                     {
-                        weights[k] += array[j] * (int)Math.Pow(2, j);
+                        weights[k] += array[j] * (int)Math.Pow(2, Math.Abs(j-8));
                     }
                     if (array[i] == 0)
                     {
