@@ -39,16 +39,16 @@ namespace practice_form
             //numbers.Create_Base();
             //Char[] symbols = new char[4]{ '˄', '˅', '→', '!'};
 
-            var num0 = "0010001010100010000000000".ToCharArray();
-            var num1 = "0010001010100010000000000".ToCharArray();
-            var num2 = "0010001010100010000000000".ToCharArray();
-            var num3 = "0010001010100010000000000".ToCharArray();
-            var num4 = "0010001010100010000000000".ToCharArray();
-            var num5 = "0010001010100010000000000".ToCharArray();
-            var num6 = "0010001010100010000000000".ToCharArray();
-            var num7 = "0010001010100010000000000".ToCharArray();
-            var num8 = "0010001010100010000000000".ToCharArray();
-            var num9 = "0010001010100010000000000".ToCharArray();
+            var num0 = "0010001010100010000000000".ToCharArray(); // Верный
+            var num1 = "0010011010100010000000000".ToCharArray(); // Малое искажение
+            var num2 = "0010001010100010000000000".ToCharArray(); // Верный
+            var num3 = "0000001010101010010000111".ToCharArray(); // Не Верный
+            var num4 = "0010001010100000000000000".ToCharArray(); // Малое искажение
+            var num5 = "0000000000100010001000011".ToCharArray(); // Не Верный
+            var num6 = "0010001010101110000000000".ToCharArray(); // Большое искажение
+            var num7 = "0010001010100010000000000".ToCharArray(); // Верный
+            var num8 = "0010001010100011000000000".ToCharArray(); // Малое искажение
+            var num9 = "0010010011100000101010100".ToCharArray(); // Не Верный
 
             char[][] base_nums1 = { num0, num1, num2, num3, num4, num5, num6, num7, num8, num9 }; // База для ˄
 
@@ -104,23 +104,33 @@ namespace practice_form
                         {
                             switch(n)
                             {
-                                case 0: if (proceed(base_nums1[k], population.ind[j].weights)) population.ind[j].value++; break;
-                                case 1: if (proceed(base_nums2[k], population.ind[j].weights)) population.ind[j].value++; break;
-                                case 2: if (proceed(base_nums3[k], population.ind[j].weights)) population.ind[j].value++; break;
-                                case 3: if (proceed(base_nums4[k], population.ind[j].weights)) population.ind[j].value++; break;
+                                case 0: if (proceed(base_nums1[k], population.ind[j].weights))
+                                        population.ind[j].value++;
+                                    break;
+                                case 1: if (proceed(base_nums2[k], population.ind[j].weights))
+                                        population.ind[j].value++;
+                                    break;
+                                case 2: if (proceed(base_nums3[k], population.ind[j].weights))
+                                        population.ind[j].value++;
+                                    break;
+                                case 3: if (proceed(base_nums4[k], population.ind[j].weights))
+                                        population.ind[j].value++;
+                                    break;
 
                             }
+                            
                             //Console.WriteLine("Чё?");
                         }
-                    
+                        if (population.ind[j].value == 7) population.ind[j].value = 1;
                     }
-                    Console.WriteLine("Чё?");
+                    //Console.WriteLine("Чё?");
                     population.Copulation(population.ind);
-                    Console.WriteLine("Размножение произошло?" + population.x);
+                    Console.WriteLine("Номер популяции - " + population.x);
                 }
                 for (int i = 0; i < 25; i++)
                 {
-                    weights[n,i] = population.ind[0].array[i];
+                    weights[n,i] = population.ind[0].weights[i];
+                    //Console.WriteLine(population.ind[0].weights[i]);
                 }
                 Console.WriteLine("WTF?");
             }

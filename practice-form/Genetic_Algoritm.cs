@@ -83,6 +83,7 @@ namespace practice_form
                     }
                 }
                 Mutation(array);
+                weights = Сalculation_Weights(array);
             }
 
             public void Mutation(int[] array) // Осуществление мутации
@@ -90,8 +91,8 @@ namespace practice_form
                 int Pm = random.Next(100);
                 if (Pm < 8)
                 {
-                    int Gen1 = random.Next(0, 17);
-                    int Gen2 = random.Next(17, 32);
+                    int Gen1 = random.Next(0, 100);
+                    int Gen2 = random.Next(100, 200);
                     int t = array[Gen1];
                     array[Gen1] = array[Gen2];
                     array[Gen2] = t;
@@ -107,7 +108,7 @@ namespace practice_form
                 Console.WriteLine("Исходная популяция");
                 ind = Create_Population(N);
                 this.x = x;
-                min_value = 1000;
+                //min_value = 1000;
 
                 //Copulation(ind);
             }
@@ -116,7 +117,7 @@ namespace practice_form
             public int x; // Номер популяции
             public int N; // Количесвто осыбей
             public Random random = new Random(); // Генератор случайных чисел
-            public int min_value;
+            //public int min_value;
 
             public Indidvid[] Create_Population(int N) // Создаём популяция
             {

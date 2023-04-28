@@ -405,7 +405,7 @@ namespace practice_form
             // 
             this.numericUpDown2.Location = new System.Drawing.Point(330, 48);
             this.numericUpDown2.Maximum = new decimal(new int[] {
-            15,
+            1000,
             0,
             0,
             0});
@@ -413,7 +413,7 @@ namespace practice_form
             this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown2.TabIndex = 24;
             this.numericUpDown2.Value = new decimal(new int[] {
-            7,
+            300,
             0,
             0,
             0});
