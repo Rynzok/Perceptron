@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static practice_form.Genetic_Algoritm;
 
 namespace practice_form
@@ -105,23 +106,24 @@ namespace practice_form
                             switch(n)
                             {
                                 case 0: if (proceed(base_nums1[k], population.ind[j].weights))
-                                        population.ind[j].value++;
+                                        population.ind[j].positive_response++;
                                     break;
                                 case 1: if (proceed(base_nums2[k], population.ind[j].weights))
-                                        population.ind[j].value++;
+                                        population.ind[j].positive_response++;
                                     break;
                                 case 2: if (proceed(base_nums3[k], population.ind[j].weights))
-                                        population.ind[j].value++;
+                                        population.ind[j].positive_response++;
                                     break;
                                 case 3: if (proceed(base_nums4[k], population.ind[j].weights))
-                                        population.ind[j].value++;
+                                        population.ind[j].positive_response++;
                                     break;
 
                             }
                             
                             //Console.WriteLine("Чё?");
                         }
-                        if (population.ind[j].value == 7) population.ind[j].value = 1;
+                        population.ind[j].value = Genetic_Algoritm.GetValue(population.ind[j].positive_response);
+
                     }
                     //Console.WriteLine("Чё?");
                     population.Copulation(population.ind);

@@ -14,11 +14,12 @@ namespace practice_form
             {
                 array = new int[200];
                 this.random = random;
-                value = 1;
+                positive_response = 0;
             }
 
             public int[] array;
             public int[] weights = new int[25];
+            public int positive_response;
             public int value;
             public Random random;
 
@@ -135,12 +136,12 @@ namespace practice_form
             {
                 Array.Sort(ind, (x, y) => x.value.CompareTo(y.value)); // Сортируем массив по значения фитнесс-функции
                 double sum_value = Sum(ind);
-                double[] roulette_fields = new double[((int)(ind.Length * 0.6 + 1))]; // Создаём массив для нашей рулетки
+                double[] roulette_fields = new double[((int)(ind.Length * 0.6))]; // Создаём массив для нашей рулетки
                 roulette_fields[0] = 0;
 
                 for (int i = 0; i < roulette_fields.Length - 1; i++) // Заполняем массив
                 {
-                    roulette_fields[i + 1] = roulette_fields[i] + (1 / Math.Abs(ind[i].value)) / sum_value;
+                    roulette_fields[i + 1] = roulette_fields[i] + (double)1 / Math.Abs(ind[i].value) / sum_value;
                 }
                 int x1;
                 int x2;
@@ -216,13 +217,22 @@ namespace practice_form
 
         static double Sum(Indidvid[] ind)
         {
-            double sum = 0;
+            double sum = 0.00;
             for (int i = 0; i < ind.Length * 0.6; i++) // Сумма фитнесс-функций 60% наиболееприспособленных осыбей
             {
-                sum += 1 / Math.Abs(ind[i].value);
+                sum += (double) 1 / ind[i].value;
             }
             return sum;
         }  // Обратная сумма
+
+        public static int GetValue(int positive_response)
+        {
+            int value;
+            value = Math.Abs(positive_response - 6);
+            value++;
+            return value;
+        }
+       
 
         //static void Print(int[] array, double value) // Метод вывода новых генов в консоль
         //{
