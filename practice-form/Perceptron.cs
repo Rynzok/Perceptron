@@ -171,40 +171,24 @@ namespace practice_form
                             switch (n)
                             {
                                 
-                                case 0: if (net >= bias & base_nums1[k].SequenceEqual(nums[n]))
-                                        {
-                                            population.ind[j].positive_response++;
-                                            population.ind[j].min_delta = Genetic_Algoritm.Min(net, bias, population.ind[j].min_delta);
-                                            //Console.WriteLine(population.ind[j].min_delta);
-                                        }
-                                    //    if (proceed(base_nums1[k], population.ind[j].weights) >= bias & !base_nums1[k].SequenceEqual(nums[n]))
-                                    //{
-                                    //    population.ind[j].positive_response--;
-                                    //    population.ind[j].min_delta = Genetic_Algoritm.Min(net, bias);
-                                    //}
-                                    break;
-                                case 1: if (proceed(base_nums2[k], population.ind[j].weights ) >= bias)
-                                        population.ind[j].positive_response++;
-                                    break;
-                                case 2: if (proceed(base_nums3[k], population.ind[j].weights) >= bias)
-                                        population.ind[j].positive_response++;
-                                    break;
-                                case 3: if (proceed(base_nums4[k], population.ind[j].weights) >= bias)
-                                        population.ind[j].positive_response++;
-                                    break;
+                                case 0: if (net >= bias & base_nums1[k].SequenceEqual(nums[n])) population.ind[j].positive_response++; break;
+                                case 1: if (net >= bias & base_nums2[k].SequenceEqual(nums[n])) population.ind[j].positive_response++; break;
+                                case 2: if (net >= bias & base_nums3[k].SequenceEqual(nums[n])) population.ind[j].positive_response++; break;
+                                case 3: if (net >= bias & base_nums4[k].SequenceEqual(nums[n])) population.ind[j].positive_response++; break;
 
                             }
                             
                             //Console.WriteLine("Чё?");
                         }
-                        population.ind[j].value = Genetic_Algoritm.GetValue(population.ind[j].positive_response, population.ind[j].min_delta);
-                        Console.WriteLine("Осыбь номер: " + j + " Кол. утв. ответов: " + population.ind[j].positive_response + " Рейтинг: " + population.ind[j].value);
+                        population.ind[j].value = Genetic_Algoritm.GetValue(population.ind[j].positive_response, population.ind[j].sum_weights);
+                        //Console.WriteLine("Осыбь номер: " + j + " Кол. утв. ответов: " + population.ind[j].positive_response + " Рейтинг: " + population.ind[j].value);
 
                     }
                     //Console.WriteLine("Чё?");
                     population.Copulation(population.ind);
                     Console.WriteLine("Популяция номер - " + population.x);
                 }
+                Array.Sort(population.ind, (x, y) => x.sum_weights.CompareTo(y.sum_weights));
                 for (int i = 0; i < 25; i++)
                 {
                     weights[n,i] = population.ind[0].weights[i];
@@ -224,7 +208,7 @@ namespace practice_form
             }
             
 
-            // Превышен ли порог? (Да - сеть думает, что это 5. Нет - сеть думает, что это другая цифра)
+            // Возвращаем разницу
             return net;
         }
 

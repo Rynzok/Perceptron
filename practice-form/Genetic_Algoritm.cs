@@ -15,14 +15,13 @@ namespace practice_form
                 array = new int[200];
                 this.random = random;
                 positive_response = 0;
-                min_delta = 1000;
             }
 
             public int[] array;
             public int[] weights = new int[25];
             public int positive_response;
             public int value;
-            public int min_delta;
+            public int sum_weights;
             public Random random;
 
             public void Create_Individ() // Заносим в массив занчения
@@ -50,8 +49,9 @@ namespace practice_form
                     }
                 k++;
                 }
+
                 return weights;
-            }
+            } // Расчёт весовых коэфицентов
 
             public void Reproduction(int[] perent1, int[] perent2, int s1, int s2, bool shit) // Осуществяем кроссигновер от родителей
             {
@@ -87,6 +87,7 @@ namespace practice_form
                 }
                 Mutation(array);
                 weights = Сalculation_Weights(array);
+                sum_weights = Sum_Weights(weights);
             }
 
             public void Mutation(int[] array) // Осуществление мутации
@@ -102,6 +103,15 @@ namespace practice_form
                 }
             }
 
+            public int Sum_Weights(int[] weights)
+            {
+                int sum = 0;
+                for (int i = 0; i < weights.Length; i++)
+                {
+                    sum += weights[i];
+                }
+                return sum;
+            } // Сумма весовых коэфицентов
         }
 
         public class Population
@@ -228,22 +238,17 @@ namespace practice_form
             return sum;
         }  // Обратная сумма
 
-        public static int GetValue(int positive_response, int min_delta)
+        public static int GetValue(int positive_response, int sum_weights)
         {
             int value;
             value = Math.Abs(positive_response - 9);
             value++;
             value *= 10;
-            value += min_delta;
+            value += Math.Abs(sum_weights);
 
             return value;
-        }
+        } // Определяем рейтинг индивида
 
-        public static int Min(int net, int bias, int min_delta)
-        {
-            if (min_delta > net - bias) { min_delta = net - bias; }
-            return min_delta;
-        }
 
 
         //static void Print(int[] array, double value) // Метод вывода новых генов в консоль
