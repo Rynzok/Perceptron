@@ -28,14 +28,14 @@ namespace practice_form
             int N = 100;
             Population population = new Population(N, 0);
             // Цифры (Обучающая выборка)
-            //var num0 = "0010001010100010000000000".ToCharArray();
-            //var num1 = "0000000000100010101000100".ToCharArray();
-            //var num2 = "0010000010111110001000100".ToCharArray();
-            //var num3 = "0010000100001000000000100".ToCharArray();
+            var n0 = "0010001010100010000000000".ToCharArray();
+            var n1 = "0000000000100010101000100".ToCharArray();
+            var n2 = "0010000010111110001000100".ToCharArray();
+            var n3 = "0010000100001000000000100".ToCharArray();
 
 
             // Список всех вышеуказанных цифр
-            //char[][] nums = { num0, num1, num2, num3 };
+            char[][] nums = { n0, n1, n2, n3 };
             //Character_Base numbers = new Character_Base();
             //numbers.Create_Base();
             //Char[] symbols = new char[4]{ '˄', '˅', '→', '!'};
@@ -60,11 +60,32 @@ namespace practice_form
             var num47 = "0000010000000000000010100".ToCharArray(); // Не Верный
             var num48 = "0000000000000000000000000".ToCharArray(); // Не Верный
             var num49 = "1111111111111100000000000".ToCharArray(); // Не Верный
+            var num80 = "0010001010100010000000000".ToCharArray(); // Верный
+            var num81 = "0010011010100010000000000".ToCharArray(); // Малое искажение
+            var num82 = "0010001010100010000000000".ToCharArray(); // Верный
+            var num83 = "0000001010101010010000111".ToCharArray(); // Не Верный
+            var num84 = "0010001010100000000000000".ToCharArray(); // Малое искажение
+            var num85 = "0000000000100010001000011".ToCharArray(); // Не Верный
+            var num86 = "0010001010101110000000000".ToCharArray(); // Большое искажение
+            var num87 = "0010001010100010000000000".ToCharArray(); // Верный
+            var num88 = "0010001010100011000000000".ToCharArray(); // Малое искажение
+            var num89 = "0010010011100000101010100".ToCharArray(); // Не Верный
+            var num90 = "0010001010100010000000000".ToCharArray(); // Верный
+            var num91 = "0010011010100010000000000".ToCharArray(); // Малое искажение
+            var num92 = "0010001010100010000000000".ToCharArray(); // Верный
+            var num93 = "0000001010101010010000111".ToCharArray(); // Не Верный
+            var num94 = "0010001010100000000000000".ToCharArray(); // Малое искажение
+            var num95 = "0000000000100010001000011".ToCharArray(); // Не Верный
+            var num96 = "0010001010101110000000000".ToCharArray(); // Большое искажение
+            var num97 = "0010001010100010000000000".ToCharArray(); // Верный
+            var num98 = "0010001010100011000000000".ToCharArray(); // Малое искажение
+            var num99 = "0010010011100000101010100".ToCharArray(); // Не Верный
 
 
 
 
-            char[][] base_nums1 = { num0, num1, num2, num3, num4, num5, num6, num7, num8, num9, num40, num41, num42, num43, num44, num45, num46, num47, num48, num49 }; // База для ˄
+            char[][] base_nums1 = { num0, num1, num2, num3, num4, num5, num6, num7, num8, num9, num40, num41, num42, num43, num44, num45, num46, num47, num48, num49,
+                                    num80, num81, num82, num83, num84, num85, num86, num87, num88, num89, num90, num91, num92, num93, num94, num95, num96, num97, num98, num99}; // База для ˄
 
             var num10 = "0000000000100010101000100".ToCharArray();
             var num11 = "0000000000100010101000100".ToCharArray();
@@ -138,18 +159,20 @@ namespace practice_form
             char[][] base_nums4 = { num30, num31, num32, num33, num34, num35, num36, num37, num38, num39, num70, num71, num72, num73, num74, num75, num76, num77, num78, num79 }; // База для !
 
             // Тренировка сети
-            for (int n = 0; n <4; n++)
+            for (int n = 0; n <1; n++)
             {
                 for (int i = 0; i < trainings; i++)
                 {
                     for (int j = 0; j < population.ind.Length ; j++)
                     {
-                        for (int k = 0; k < 20; k++)
+                        for (int k = 0; k < 40; k++)
                         {
                             switch(n)
                             {
-                                case 0: if (proceed(base_nums1[k], population.ind[j].weights))
+                                case 0: if (proceed(base_nums1[k], population.ind[j].weights) & base_nums1[k].SequenceEqual(nums[n]))
                                         population.ind[j].positive_response++;
+                                        if (proceed(base_nums1[k], population.ind[j].weights) & !base_nums1[k].SequenceEqual(nums[n]))
+                                        population.ind[j].positive_response--;
                                     break;
                                 case 1: if (proceed(base_nums2[k], population.ind[j].weights))
                                         population.ind[j].positive_response++;
@@ -166,11 +189,12 @@ namespace practice_form
                             //Console.WriteLine("Чё?");
                         }
                         population.ind[j].value = Genetic_Algoritm.GetValue(population.ind[j].positive_response);
+                        Console.WriteLine("Осыбь номер: " + j + " Кол. утв. ответов: " + population.ind[j].positive_response + " Рейтинг: " + population.ind[j].value);
 
                     }
                     //Console.WriteLine("Чё?");
                     population.Copulation(population.ind);
-                    Console.WriteLine("Номер популяции - " + population.x);
+                    Console.WriteLine("Популяция номер - " + population.x);
                 }
                 for (int i = 0; i < 25; i++)
                 {

@@ -117,7 +117,7 @@ namespace practice_form
             public Indidvid[] ind;
             public int x; // Номер популяции
             public int N; // Количесвто осыбей
-            public Random random = new Random(); // Генератор случайных чисел
+            public Random random = new Random(Guid.NewGuid().GetHashCode()); // Генератор случайных чисел
             //public int min_value;
 
             public Indidvid[] Create_Population(int N) // Создаём популяция
@@ -228,7 +228,7 @@ namespace practice_form
         public static int GetValue(int positive_response)
         {
             int value;
-            value = Math.Abs(positive_response - 6);
+            value = Math.Abs(positive_response - 9);
             value++;
             return value;
         }
