@@ -47,7 +47,15 @@ namespace practice_form
                     for (int j = 0; j < population.ind.Length ; j++)
                     {
                         int net = proceed(nums[option], population.ind[j].weights);
-                        if (net >= bias & nums[option].SequenceEqual(nums[n])) population.ind[j].positive_response++;
+                        if (option == n)
+                        {
+                            if (net >= bias) population.ind[j].positive_response++;
+                        }
+                        else
+                        {
+                            if (net >= bias) population.ind[j].positive_response--;
+                        }
+                        
                         population.ind[j].value = Genetic_Algoritm.GetValue(population.ind[j].positive_response, population.ind[j].sum_weights);
                         //Console.WriteLine("Осыбь номер: " + j + " Кол. утв. ответов: " + population.ind[j].positive_response + " Рейтинг: " + population.ind[j].value);
 
@@ -56,13 +64,13 @@ namespace practice_form
                     population.Copulation(population.ind);
                     Console.WriteLine("Популяция номер - " + population.x);
                 }
-                Array.Sort(population.ind, (x, y) => x.sum_weights.CompareTo(y.sum_weights));
+                //Array.Sort(population.ind, (x, y) => x.sum_weights.CompareTo(y.sum_weights));
                 for (int i = 0; i < 25; i++)
                 {
                     weights[n,i] = population.ind[0].weights[i];
                     //Console.WriteLine(population.ind[0].weights[i]);
                 }
-                Console.WriteLine("WTF?");
+                //Console.WriteLine("WTF?");
             }
         }
 
