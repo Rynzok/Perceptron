@@ -396,7 +396,7 @@ namespace practice_form
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 23;
             this.numericUpDown1.Value = new decimal(new int[] {
-            1000,
+            10000,
             0,
             0,
             0});
