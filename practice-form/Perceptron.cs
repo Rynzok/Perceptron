@@ -36,150 +36,18 @@ namespace practice_form
 
             // Список всех вышеуказанных цифр
             char[][] nums = { n0, n1, n2, n3 };
-            //Character_Base numbers = new Character_Base();
-            //numbers.Create_Base();
             //Char[] symbols = new char[4]{ '˄', '˅', '→', '!'};
 
-            var num0 = "0010001010100010000000000".ToCharArray(); // Верный
-            var num1 = "0010011010100010000000000".ToCharArray(); // Малое искажение
-            var num2 = "0010001010100010000000000".ToCharArray(); // Верный
-            var num3 = "0000001010101010010000111".ToCharArray(); // Не Верный
-            var num4 = "0010001010100000000000000".ToCharArray(); // Малое искажение
-            var num5 = "0000000000100010001000011".ToCharArray(); // Не Верный
-            var num6 = "0010001010101110000000000".ToCharArray(); // Большое искажение
-            var num7 = "0010001010100010000000000".ToCharArray(); // Верный
-            var num8 = "0010001010100011000000000".ToCharArray(); // Малое искажение
-            var num9 = "0010010011100000101010100".ToCharArray(); // Не Верный
-            var num40 = "1111111111111111111111111".ToCharArray(); // Не Верный
-            var num41 = "1111110011110111111000111".ToCharArray(); // Не Верный
-            var num42 = "0001111111110000110111001".ToCharArray(); // Не Верный
-            var num43 = "1111111011111111111011111".ToCharArray(); // Не Верный
-            var num44 = "1101101111101111101101110".ToCharArray(); // Не Верный
-            var num45 = "1010011110001110101010100".ToCharArray(); // Не Верный
-            var num46 = "0010010011111111100000000".ToCharArray(); // Не Верный
-            var num47 = "0000010000000000000010100".ToCharArray(); // Не Верный
-            var num48 = "0000000000000000000000000".ToCharArray(); // Не Верный
-            var num49 = "1111111111111100000000000".ToCharArray(); // Не Верный
-            var num80 = "0010001010100010000000000".ToCharArray(); // Верный
-            var num81 = "0010011010100010000000000".ToCharArray(); // Малое искажение
-            var num82 = "0010001010100010000000000".ToCharArray(); // Верный
-            var num83 = "0000001010101010010000111".ToCharArray(); // Не Верный
-            var num84 = "0010001010100000000000000".ToCharArray(); // Малое искажение
-            var num85 = "0000000000100010001000011".ToCharArray(); // Не Верный
-            var num86 = "0010001010101110000000000".ToCharArray(); // Большое искажение
-            var num87 = "0010001010100010000000000".ToCharArray(); // Верный
-            var num88 = "0010001010100011000000000".ToCharArray(); // Малое искажение
-            var num89 = "0010010011100000101010100".ToCharArray(); // Не Верный
-            var num90 = "0010001010100010000000000".ToCharArray(); // Верный
-            var num91 = "0010011010100010000000000".ToCharArray(); // Малое искажение
-            var num92 = "0010001010100010000000000".ToCharArray(); // Верный
-            var num93 = "0000001010101010010000111".ToCharArray(); // Не Верный
-            var num94 = "0010001010100000000000000".ToCharArray(); // Малое искажение
-            var num95 = "0000000000100010001000011".ToCharArray(); // Не Верный
-            var num96 = "0010001010101110000000000".ToCharArray(); // Большое искажение
-            var num97 = "0010001010100010000000000".ToCharArray(); // Верный
-            var num98 = "0010001010100011000000000".ToCharArray(); // Малое искажение
-            var num99 = "0010010011100000101010100".ToCharArray(); // Не Верный
-
-
-
-
-            char[][] base_nums1 = { num0, num1, num2, num3, num4, num5, num6, num7, num8, num9, num40, num41, num42, num43, num44, num45, num46, num47, num48, num49,
-                                    num80, num81, num82, num83, num84, num85, num86, num87, num88, num89, num90, num91, num92, num93, num94, num95, num96, num97, num98, num99}; // База для ˄
-
-            var num10 = "0000000000100010101000100".ToCharArray();
-            var num11 = "0000000000100010101000100".ToCharArray();
-            var num12 = "0000000000100010101000100".ToCharArray();
-            var num13 = "0000000000100010101000100".ToCharArray();
-            var num14 = "0000000000100010101000100".ToCharArray();
-            var num15 = "0000000000100010101000100".ToCharArray();
-            var num16 = "0000000000100010101000100".ToCharArray();
-            var num17 = "0000000000100010101000100".ToCharArray();
-            var num18 = "0000000000100010101000100".ToCharArray();
-            var num19 = "0000000000100010101000100".ToCharArray();
-            var num50 = "0000000000100010101000100".ToCharArray();
-            var num51 = "0000000000100010101000100".ToCharArray();
-            var num52 = "0000000000100010101000100".ToCharArray();
-            var num53 = "0000000000100010101000100".ToCharArray();
-            var num54 = "0000000000100010101000100".ToCharArray();
-            var num55 = "0000000000100010101000100".ToCharArray();
-            var num56 = "0000000000100010101000100".ToCharArray();
-            var num57 = "0000000000100010101000100".ToCharArray();
-            var num58 = "0000000000100010101000100".ToCharArray();
-            var num59 = "0000000000100010101000100".ToCharArray();
-
-            char[][] base_nums2 = { num10, num11, num12, num13, num14, num15, num16, num17, num18, num19, num50, num51, num52, num53, num54, num55, num56, num57, num58, num59 }; // База для ˅
-
-            var num20 = "0010000010111110001000100".ToCharArray();
-            var num21 = "0010000010111110001000100".ToCharArray();
-            var num22 = "0010000010111110001000100".ToCharArray();
-            var num23 = "0010000010111110001000100".ToCharArray();
-            var num24 = "0010000010111110001000100".ToCharArray();
-            var num25 = "0010000010111110001000100".ToCharArray();
-            var num26 = "0010000010111110001000100".ToCharArray();
-            var num27 = "0010000010111110001000100".ToCharArray();
-            var num28 = "0010000010111110001000100".ToCharArray();
-            var num29 = "0010000010111110001000100".ToCharArray();
-            var num60 = "0010000010111110001000100".ToCharArray();
-            var num61 = "0010000010111110001000100".ToCharArray();
-            var num62 = "0010000010111110001000100".ToCharArray();
-            var num63 = "0010000010111110001000100".ToCharArray();
-            var num64 = "0010000010111110001000100".ToCharArray();
-            var num65 = "0010000010111110001000100".ToCharArray();
-            var num66 = "0010000010111110001000100".ToCharArray();
-            var num67 = "0010000010111110001000100".ToCharArray();
-            var num68 = "0010000010111110001000100".ToCharArray();
-            var num69 = "0010000010111110001000100".ToCharArray();
-
-
-            char[][] base_nums3 = { num20, num21, num22, num23, num24, num25, num26, num27, num28, num29, num60, num61, num62, num63, num64, num65, num66, num67, num68, num69 }; // База для →
-
-            var num30 = "0010000100001000000000100".ToCharArray();
-            var num31 = "0010000100001000000000100".ToCharArray();
-            var num32 = "0010000100001000000000100".ToCharArray();
-            var num33 = "0010000100001000000000100".ToCharArray();
-            var num34 = "0010000100001000000000100".ToCharArray();
-            var num35 = "0010000100001000000000100".ToCharArray();
-            var num36 = "0010000100001000000000100".ToCharArray();
-            var num37 = "0010000100001000000000100".ToCharArray();
-            var num38 = "0010000100001000000000100".ToCharArray();
-            var num39 = "0010000100001000000000100".ToCharArray();
-            var num70 = "0010000100001000000000100".ToCharArray();
-            var num71 = "0010000100001000000000100".ToCharArray();
-            var num72 = "0010000100001000000000100".ToCharArray();
-            var num73 = "0010000100001000000000100".ToCharArray();
-            var num74 = "0010000100001000000000100".ToCharArray();
-            var num75 = "0010000100001000000000100".ToCharArray();
-            var num76 = "0010000100001000000000100".ToCharArray();
-            var num77 = "0010000100001000000000100".ToCharArray();
-            var num78 = "0010000100001000000000100".ToCharArray();
-            var num79 = "0010000100001000000000100".ToCharArray();
-
-
-            char[][] base_nums4 = { num30, num31, num32, num33, num34, num35, num36, num37, num38, num39, num70, num71, num72, num73, num74, num75, num76, num77, num78, num79 }; // База для !
-
             // Тренировка сети
-            for (int n = 0; n <1; n++)
+            for (int n = 0; n <4; n++)
             {
                 for (int i = 0; i < trainings; i++)
                 {
+                    var option = random.Next(0, 4);
                     for (int j = 0; j < population.ind.Length ; j++)
                     {
-                        for (int k = 0; k < 40; k++)
-                        {
-                            int net = proceed(base_nums1[k], population.ind[j].weights);
-                            switch (n)
-                            {
-                                
-                                case 0: if (net >= bias & base_nums1[k].SequenceEqual(nums[n])) population.ind[j].positive_response++; break;
-                                case 1: if (net >= bias & base_nums2[k].SequenceEqual(nums[n])) population.ind[j].positive_response++; break;
-                                case 2: if (net >= bias & base_nums3[k].SequenceEqual(nums[n])) population.ind[j].positive_response++; break;
-                                case 3: if (net >= bias & base_nums4[k].SequenceEqual(nums[n])) population.ind[j].positive_response++; break;
-
-                            }
-                            
-                            //Console.WriteLine("Чё?");
-                        }
+                        int net = proceed(nums[option], population.ind[j].weights);
+                        if (net >= bias & nums[option].SequenceEqual(nums[n])) population.ind[j].positive_response++;
                         population.ind[j].value = Genetic_Algoritm.GetValue(population.ind[j].positive_response, population.ind[j].sum_weights);
                         //Console.WriteLine("Осыбь номер: " + j + " Кол. утв. ответов: " + population.ind[j].positive_response + " Рейтинг: " + population.ind[j].value);
 

@@ -244,7 +244,7 @@ namespace practice_form
             value = Math.Abs(positive_response - 9);
             value++;
             value *= 10;
-            value += Math.Abs(sum_weights);
+            //value += Math.Abs(sum_weights);
 
             return value;
         } // Определяем рейтинг индивида
