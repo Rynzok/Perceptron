@@ -167,20 +167,29 @@ namespace practice_form
                     {
                         for (int k = 0; k < 40; k++)
                         {
-                            switch(n)
+                            int net = proceed(base_nums1[k], population.ind[j].weights);
+                            switch (n)
                             {
-                                case 0: if (proceed(base_nums1[k], population.ind[j].weights) & base_nums1[k].SequenceEqual(nums[n]))
-                                        population.ind[j].positive_response++;
-                                        if (proceed(base_nums1[k], population.ind[j].weights) & !base_nums1[k].SequenceEqual(nums[n]))
-                                        population.ind[j].positive_response--;
+                                
+                                case 0: if (net >= bias & base_nums1[k].SequenceEqual(nums[n]))
+                                        {
+                                            population.ind[j].positive_response++;
+                                            population.ind[j].min_delta = Genetic_Algoritm.Min(net, bias, population.ind[j].min_delta);
+                                            //Console.WriteLine(population.ind[j].min_delta);
+                                        }
+                                    //    if (proceed(base_nums1[k], population.ind[j].weights) >= bias & !base_nums1[k].SequenceEqual(nums[n]))
+                                    //{
+                                    //    population.ind[j].positive_response--;
+                                    //    population.ind[j].min_delta = Genetic_Algoritm.Min(net, bias);
+                                    //}
                                     break;
-                                case 1: if (proceed(base_nums2[k], population.ind[j].weights))
+                                case 1: if (proceed(base_nums2[k], population.ind[j].weights ) >= bias)
                                         population.ind[j].positive_response++;
                                     break;
-                                case 2: if (proceed(base_nums3[k], population.ind[j].weights))
+                                case 2: if (proceed(base_nums3[k], population.ind[j].weights) >= bias)
                                         population.ind[j].positive_response++;
                                     break;
-                                case 3: if (proceed(base_nums4[k], population.ind[j].weights))
+                                case 3: if (proceed(base_nums4[k], population.ind[j].weights) >= bias)
                                         population.ind[j].positive_response++;
                                     break;
 
@@ -188,7 +197,7 @@ namespace practice_form
                             
                             //Console.WriteLine("Чё?");
                         }
-                        population.ind[j].value = Genetic_Algoritm.GetValue(population.ind[j].positive_response);
+                        population.ind[j].value = Genetic_Algoritm.GetValue(population.ind[j].positive_response, population.ind[j].min_delta);
                         Console.WriteLine("Осыбь номер: " + j + " Кол. утв. ответов: " + population.ind[j].positive_response + " Рейтинг: " + population.ind[j].value);
 
                     }
@@ -205,7 +214,7 @@ namespace practice_form
             }
         }
 
-        public static bool proceed(char[] base_number, int [] weights)
+        public static int proceed(char[] base_number, int [] weights)
         {
             // Рассчитываем взвешенную сумму
             var net = 0;
@@ -213,9 +222,10 @@ namespace practice_form
             {
                 net += int.Parse(base_number[i].ToString()) * weights[i];
             }
+            
 
             // Превышен ли порог? (Да - сеть думает, что это 5. Нет - сеть думает, что это другая цифра)
-            return net >= bias;
+            return net;
         }
 
         public static bool Comparison(char[] base_number, int RightNumbers)

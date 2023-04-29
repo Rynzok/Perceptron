@@ -15,12 +15,14 @@ namespace practice_form
                 array = new int[200];
                 this.random = random;
                 positive_response = 0;
+                min_delta = 1000;
             }
 
             public int[] array;
             public int[] weights = new int[25];
             public int positive_response;
             public int value;
+            public int min_delta;
             public Random random;
 
             public void Create_Individ() // Заносим в массив занчения
@@ -99,6 +101,7 @@ namespace practice_form
                     array[Gen2] = t;
                 }
             }
+
         }
 
         public class Population
@@ -225,14 +228,23 @@ namespace practice_form
             return sum;
         }  // Обратная сумма
 
-        public static int GetValue(int positive_response)
+        public static int GetValue(int positive_response, int min_delta)
         {
             int value;
             value = Math.Abs(positive_response - 9);
             value++;
+            value *= 10;
+            value += min_delta;
+
             return value;
         }
-       
+
+        public static int Min(int net, int bias, int min_delta)
+        {
+            if (min_delta > net - bias) { min_delta = net - bias; }
+            return min_delta;
+        }
+
 
         //static void Print(int[] array, double value) // Метод вывода новых генов в консоль
         //{
