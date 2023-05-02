@@ -17,11 +17,11 @@ namespace practice_form
                 positive_response = 0;
             }
 
-            public int[] array;
-            public int[] weights = new int[25];
-            public int positive_response;
-            public int value;
-            public int sum_weights;
+            public int[] array; // Массив из 0 и 1
+            public int[] weights = new int[25];  // Массив весовых коэфицентов
+            public int positive_response; // Количесвто Утвердительных ответов
+            public int value; // Рейтинг индивида
+            public int sum_weights; // Суммы весовых коэфицентов
             public Random random;
 
             public void Create_Individ() // Заносим в массив занчения
@@ -37,7 +37,7 @@ namespace practice_form
             public int[] Сalculation_Weights(int[] array)
             {
                 int k = 0;
-                for (int i = 0; i < array.Length; i +=8)
+                for (int i = 0; i < array.Length; i +=8) // Каждые 8 нулей и единиц это одно число, причём первая цифра указывает знак
                 {
                     for (int j = 7; j > 0; j--)
                     {
@@ -112,7 +112,7 @@ namespace practice_form
                 }
                 return sum;
             } // Сумма весовых коэфицентов
-        }
+        } // Класс индивидов
 
         public class Population
         {
@@ -213,20 +213,7 @@ namespace practice_form
                 }
             } // Заменяем старую популяцию нвовй
 
-            //public double GetValue(Indidvid[] ind)
-            //{
-
-            //    for (int i = 0; i < N; i++)
-            //    {
-            //        if (min_value < Math.Abs(ind[i].value))
-            //        {
-            //            min_value = Math.Abs(ind[i].value - 20);
-            //        }
-            //    }
-            //    return min_value;
-            //}
-
-        }
+        } // Класс популяции
 
         static double Sum(Indidvid[] ind)
         {
@@ -236,7 +223,7 @@ namespace practice_form
                 sum += (double) 1 / ind[i].value;
             }
             return sum;
-        }  // Обратная сумма
+        }  // Обратная сумма нужная для рулетки
 
         public static int GetValue(int positive_response, int sum_weights)
         {
@@ -244,32 +231,9 @@ namespace practice_form
             value = Math.Abs(positive_response - 9);
             value++;
             value *= 10;
-            //value += Math.Abs(sum_weights);
 
             return value;
         } // Определяем рейтинг индивида
 
-
-
-        //static void Print(int[] array, double value) // Метод вывода новых генов в консоль
-        //{
-        //    for (byte i = 0; i < array.Length; i++)
-        //    {
-        //        Console.Write(array[i]);
-        //    }
-        //    Console.Write(" Ценнсть гена: " + value + "\n");
-        //}
-
-
-        //public static void Main()
-        //{
-        //    int N = 100;
-        //    Population population = new Population(N, 0);
-        //    while (population.min_value != 0)
-        //    {
-        //        population.Copulation(population.ind);
-        //    }
-
-        //}
     }
 }

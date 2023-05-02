@@ -15,19 +15,19 @@ namespace practice_form
         public static int[,] weights { get; private set; }
 
         // Порог функции активации
-        public static int bias { get; set; }
+        public static int bias { get; set; } // Порог активации
 
-        public static int trainings { get; set; }
+        public static int trainings { get; set; } // Количество тренировок
 
         private static Random random = new Random(Guid.NewGuid().GetHashCode());
 
         public static void training()
         {
-            weights = new int[4, 25];
-            int N = 100;
-            Population population = new Population(N, 0);
+            weights = new int[4, 25]; // Весовые коэфиценты для символов
+            int N = 100; // Количсевто индивидов в популяции
+            Population population = new Population(N, 0); // Создаём исходную популяция
 
-            // Цифры (Обучающая выборка)
+            // Символы (Обучающая выборка)
             var n0 = "0010001010100010000000000".ToCharArray(); // ˄
             var n1 = "0000000000100010101000100".ToCharArray(); // ˅
             var n2 = "0010000010111110001000100".ToCharArray(); // →
@@ -37,7 +37,7 @@ namespace practice_form
             // Список всех вышеуказанных цифр
             char[][] nums = { n0, n1, n2, n3 };
 
-            // Тренировка сети
+            // Тренировка сети; По дефолту будет создано 40000 популяций
             for (int n = 0; n <4; n++)
             {
                 for (int i = 0; i < trainings; i++)
@@ -45,7 +45,7 @@ namespace practice_form
                     var option = random.Next(0, 4);
                     for (int j = 0; j < population.ind.Length ; j++)
                     {
-                        int net = proceed(nums[option], population.ind[j].weights);
+                        int net = proceed(nums[option], population.ind[j].weights); // Получаем сумму перемноженых коэфицентов
                         if (option == n)
                         {
                             if (net >= bias) population.ind[j].positive_response++;
@@ -55,21 +55,16 @@ namespace practice_form
                             if (net >= bias) population.ind[j].positive_response--;
                         }
                         
-                        population.ind[j].value = Genetic_Algoritm.GetValue(population.ind[j].positive_response, population.ind[j].sum_weights);
-                        //Console.WriteLine("Осыбь номер: " + j + " Кол. утв. ответов: " + population.ind[j].positive_response + " Рейтинг: " + population.ind[j].value);
+                        population.ind[j].value = Genetic_Algoritm.GetValue(population.ind[j].positive_response, population.ind[j].sum_weights); // Расчитываем рейтинг индивида
 
                     }
-                    //Console.WriteLine("Чё?");
-                    population.Copulation(population.ind);
+                    population.Copulation(population.ind); // Размножаем
                     Console.WriteLine("Популяция номер - " + population.x);
                 }
-                //Array.Sort(population.ind, (x, y) => x.sum_weights.CompareTo(y.sum_weights));
-                for (int i = 0; i < 25; i++)
+                for (int i = 0; i < 25; i++) // Устанавливаем окончательные весовые коэфиценты для данного символа
                 {
                     weights[n,i] = population.ind[0].weights[i];
-                    //Console.WriteLine(population.ind[0].weights[i]);
                 }
-                //Console.WriteLine("WTF?");
             }
         }
 
